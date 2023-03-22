@@ -1,0 +1,16 @@
+.powerstats {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+input {
+  width: 140px;
+  height: 30px;
+  margin-left: 10px;
+}
+
+#title {
+  font-size: 30px;
+  margin-top: 15px;
+}
