@@ -1,0 +1,63 @@
+<div *ngIf="hero">
+  <h2>{{ hero.name | uppercase }} DETAILS</h2>
+  <div>
+    <label for="hero-name">Hero Name: </label>
+    <input id="hero-name" [(ngModel)]="hero.name" placeholder="name" />
+  </div>
+  <div><span>ID: </span>{{ hero.id }}</div>
+</div>
+
+<div *ngIf="hero">
+  <div>
+    <h3>POWER STATS</h3>
+
+    <div class="powerstats">
+      <label for="hero-combat">Combat: </label>
+      <input
+        id="hero-combat"
+        [(ngModel)]="hero.powerStats.combat"
+        (ngModelChange)="hero.overallRating = calculateOverallRating(hero)"
+        type="number"
+      />
+    </div>
+    <div class="powerstats">
+      <label for="hero-speed">Speed: </label>
+      <input
+        id="hero-speed"
+        [(ngModel)]="hero.powerStats.speed"
+        (ngModelChange)="hero.overallRating = calculateOverallRating(hero)"
+        type="number"
+      />
+    </div>
+    <div class="powerstats">
+      <label for="hero-intelligence">Intelligence: </label>
+      <input
+        id="hero-intelligence"
+        [(ngModel)]="hero.powerStats.intelligence"
+        (ngModelChange)="hero.overallRating = calculateOverallRating(hero)"
+        type="number"
+        size="10"
+      />
+    </div>
+    <div class="powerstats">
+      <label for="hero-strength">Strength: </label>
+      <input
+        id="hero-strength"
+        [(ngModel)]="hero.powerStats.strength"
+        (ngModelChange)="hero.overallRating = calculateOverallRating(hero)"
+        type="number"
+      />
+    </div>
+  </div>
+  <!--<p>Overall Rating: {{ hero.overallRating }}</p>-->
+</div>
+
+<div *ngIf="hero">
+  <h3>OVERALL RATING</h3>
+  <p
+    id="ratingnumber"
+    [style.color]="getOverallRatingColor(hero.overallRating)"
+  >
+    {{ hero.overallRating }}
+  </p>
+</div>
